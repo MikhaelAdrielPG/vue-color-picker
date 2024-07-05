@@ -1,30 +1,15 @@
 <script setup>
-import { ref } from "vue";
+import { provide, ref } from "vue";
+import Parent from "./components/Parent.vue";
 
-const red = ref(0);
-const green = ref(0);
-const blue = ref(0);
+const numbers = ref([1, 2, 3, 4, 5]);
+
+provide("numbers", numbers);
 </script>
 
 <template>
-  <main :style="{ backgroundColor: `rgb(${red}, ${green}, ${blue})` }">
-    <div>
-      <input type="number" name="red" id="" placeholder="red" v-model="red" />
-      <input
-        type="number"
-        name="gree"
-        id=""
-        placeholder="green"
-        v-model="green"
-      />
-      <input
-        type="number"
-        name="blue"
-        id=""
-        placeholder="blue"
-        v-model="blue"
-      />
-    </div>
+  <main>
+    <Parent />
   </main>
 </template>
 
